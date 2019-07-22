@@ -33,7 +33,7 @@ class AdminPanel extends HTMLElement {
 
             <div class="form-group avatar">
                 <input type="file" id="avatarka"  class="form-photo-rebus">
-                <label class="label-avatar" for="avatarka"><img id="preview" class="fist-avatar" src="/images/ava-rebus.png">
+                <label class="label-avatar" for="avatarka"><img id="preview" class="fist-avatar" src="images/ava-rebus.png">
                 </label> 
                 <div class="buttons-post">
                     <button class="post-new-rebus" id="back-to-tasklist" type="button">Back</button>
