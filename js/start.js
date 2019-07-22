@@ -1,6 +1,4 @@
-import(`js/sing_in.js`)
-import(`js/rebus.js`)
-// import(`../js/admin.js`)
+
 
 const main = document.getElementsByTagName("main")[0] 
 main.admin = document.getElementById("ad")
