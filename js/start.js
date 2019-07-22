@@ -1,5 +1,5 @@
-import(`../js/sing_in.js`)
-import(`../js/rebus.js`)
+import(`js/sing_in.js`)
+import(`js/rebus.js`)
 // import(`../js/admin.js`)
 
 const main = document.getElementsByTagName("main")[0] 
@@ -46,8 +46,8 @@ const regBtn = document.getElementById('regBtn');
 console.log(regBtn)
 regBtn.onclick = function (event) {
   let regpage = document.body.appendChild(document.createElement("register-page"));
-  regpage.setAttribute("markup", "../chanks/Registration.html");
-  regpage.setAttribute("css", "../css/Registration.css");
+  regpage.setAttribute("markup", "chanks/Registration.html");
+  regpage.setAttribute("css", "css/Registration.css");
   
 }
 
@@ -60,8 +60,8 @@ const rebusGame = document.getElementById('rebus');
 console.log(rebusGame)
 rebusGame.onclick = function (event){
   let gameR = document.createElement("rebus-game");
-  gameR.setAttribute("markup", "../chanks/rebus.html");
-  gameR.setAttribute("css", "../chanks/rebus.css");
+  gameR.setAttribute("markup", "chanks/rebus.html");
+  gameR.setAttribute("css", "chanks/rebus.css");
   document.body.appendChild(gameR)
 }
 
@@ -74,8 +74,8 @@ console.log(signIn)
  signIn.onclick = function (event) {
   let regpage2 = document.createElement("signin-page");
 
-  regpage2.setAttribute("markup", "../chanks/Sign_in.html");
-  regpage2.setAttribute("css", "../css/Sign_in.css");
+  regpage2.setAttribute("markup", "chanks/Sign_in.html");
+  regpage2.setAttribute("css", "css/Sign_in.css");
   document.body.appendChild(regpage2)
   
 }
