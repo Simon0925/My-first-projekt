@@ -32,7 +32,7 @@
 	min-height: 400px;
 	position: relative;
 	border:10px solid black;
-	background: url(../images/rebusback.jpg);
+	background: url(images/rebusback.jpg);
 	border-radius: 30px;
 	flex-direction: column;
 }
