@@ -1,0 +1,338 @@
+class AdminPanel extends HTMLElement {
+    constructor() {
+        super()
+        this.shadow = this.attachShadow({mode: "closed"})
+        this.shadow.innerHTML = `
+            <link rel="stylesheet" href="chanks/admin.css">
+  <div id="myModal" class="modal"> 
+                
+        
+            
+        
+        <div class=wrapper>
+                    <section> 
+                    <img class="close-regpage" id="myBtn"  src="images/cross2.png"> 
+                    <div class="head">
+                    <h1>Rebus Redak</h1>
+                </div>
+                <div class="tasklist" id="post-list" >
+
+                <button class="allist" id="allist">Rebus list</button>
+                <button class="post" id="post">Rebus post</button>
+    
+        <div class="post_page" id="post_page" >
+                
+            <h2 class="error-txt" id="error"></h2> 
+
+                <div class="input-text-qwestion">
+                
+                <input type="text" placeholder="QWESTION TEXT" name="qwestion-text" id="qwestion_text" class="input-text-qwestion">
+                </div>
+               
+                
+
+            <div class="form-group avatar">
+                <input type="file" id="avatarka"  class="form-photo-rebus">
+                <label class="label-avatar" for="avatarka"><img id="preview" class="fist-avatar" src="/images/ava-rebus.png">
+                </label> 
+                <div class="buttons-post">
+                    <button class="post-new-rebus" id="back-to-tasklist" type="button">Back</button>
+                    <button class="post-new-rebus" id="post-new-rebus" type="button">Post</button> 
+                    <button class="post-new-rebus" id="creat-post-new-rebus" type="button">Creat Post</button> 
+                </div>
+    
+
+            </div>
+           
+
+            
+
+        </div>
+
+     <div class="rebus_list" id="rebus_list">
+        <div class="box" id="box"></div>
+        <div class="info" id="info"></div>
+        <span class="number" id="number"></span>
+        
+
+        <div class="buttons-rebus-list">
+            <button class="change-to" id="change-to">Chenge To</button>
+            <div class="rebus-data" id="rebus-data">
+            <span class="rebus-data-value" id="rebus-data-value">
+            <input type="file">
+            </div>
+
+
+            <button class="list-botton" id="delete-rebus" type="button">Delete</button>
+            <button class="put-botton" id="put-rebus" type="button">Put</button> 
+        </div>
+        
+     </div>                       
+                                
+     </div>
+                        
+                        
+    </section>
+  </div>
+      
+        `
+
+    }
+
+    connectedCallback() {
+        this.getdata()
+    }
+
+     getdata() {
+     this.closeButton = this.shadow.querySelector("#myBtn");
+     this.post = this.shadow.querySelector("#post");
+     this.admin = document.querySelector("#admin");
+     this.list = this.shadow.querySelector("#allist");
+     this.postPage = this.shadow.querySelector("#post_page");
+     this.errorSpace = this.shadow.querySelector("#error");
+     this.qwestionText= this.shadow.querySelector("#qwestion_text");
+     this.postRebusButton = this.shadow.querySelector("#post-new-rebus");
+     this.rebusPhoto = this.shadow.querySelector("#avatarka");
+     this.preview = this.shadow.querySelector("#preview");
+     this.postAgain = this.shadow.querySelector("#creat-post-new-rebus");
+     this.backTaskButton = this.shadow.querySelector("#back-to-tasklist");
+     this.postList = this.shadow.querySelector("#post-list");
+     this.rebusList = this.shadow.querySelector("#rebus_list");
+     this.deleteRebus = this.shadow.querySelector("#delete-rebus")
+     this.putButton = this.shadow.querySelector("#put-rebus")
+     this.post.onclick = function(event) {
+                console.log("all of be good!")
+        this.post.style.display = "none";
+        this.list.style.display = "none";
+        this.postPage.style.display = "inline"
+        this.postAgain.style.display = "none"
+
+       
+
+        //______________________CREATE REBUS STASRT______________________\\
+                                  
+        this.qwestionText.onchange = function (event) {
+            event.target.valid = event.target.value.length != ""
+                 if(event.target.valid) {
+                    this.errorSpace.innerHTML = ""
+                        }
+                 else {
+                    this.errorSpace.innerHTML = "Enter qwestion text!"
+                     }
+        }.bind(this)
+
+
+
+        this.rebusPhoto.onchange = function ( event ) {
+            this.preview.style.display = "none"
+            let photo = event.target.files[0] ? event.target.files[0] : null
+            if ( photo.type.indexOf( "image" ) === -1 ) {
+                this.errorSpace.innerHTML = "Wrong type of file!"
+                this.preview.style.display = "none"
+                this.rebusPhoto.valid = false
+            } 
+            if (photo.type.indexOf ( "image" ) === 0 && photo.size > 500000 ) {
+                this.errorSpace.innerHTML = "Image size is too big!"
+                this.preview.style.display = "none"
+                this.rebusPhoto.valid = false
+            }
+            if (photo.type.indexOf ( "image" ) === 0 && photo.size <= 500000 ) {
+                this.errorSpace.innerHTML = ""
+                let picture = URL.createObjectURL ( photo )
+                this.preview.style.display = "block"
+                this.preview.src = picture
+                this.rebusPhoto.valid = true
+                if(this.rebusPhoto.valid && this.qwestionText.valid) {
+                   this.postRebusButton.disabled = false
+                   this.postRebusButton.style.background = "#4c4c4c"
+                   this.postRebusButton.innerHTML = "let post"
+               }
+               else {
+                   this.postRebusButton.disabled = true   
+                            
+               }
+            }}.bind(this)   
+            
+            
+
+            this.postRebusButton.onclick = function (event) {
+                this.postRebusButton.style.display = "none"
+                this.postAgain.style.display = "inline"
+
+                fetch("https://fea13-sema.glitch.me/games", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    text: this.qwestionText.value,
+                    img: this.preview.src,
+                    
+                })
+                }).then(
+                response => response.json())
+            }.bind(this)
+
+
+    this.postAgain.onclick = function() {
+        console.log("all of be good!")
+        this.postRebusButton.style.display = "inline";
+        this.postAgain.style.display = "none"
+        
+    }.bind(this)
+
+
+    this.backTaskButton.onclick = function() {
+        console.log("all of be good!")
+        this.post.style.display = "inline";
+        this.list.style.display = "inline";
+        this.postPage.style.display = "none"
+        this.postList.style.display = "inline";
+        
+    }.bind(this)
+    //______________________CREATE REBUS END______________________\\
+
+
+
+
+    }.bind(this)
+    
+    //______________________CREATE LIST STASRT______________________\\
+    
+    
+    this.list.onclick = function(event) {
+        console.log("all of be good!")
+        this.post.style.display = "none";
+        this.list.style.display = "none";
+        
+        this.deleteRebus.style.display = "none"
+        this.rebusList.style.display = "inline";
+        let rebusList =  this.rebusList
+        async function getItems() {
+            let rebus = await (await fetch("https://fea13-sema.glitch.me/games")).json()
+            if (rebus.length > 0) {
+                rebus.forEach(reb => {
+                    let cart = document.createElement("div")
+                    cart.className = "cart"
+                    let info = document.createElement("div")
+                    info.className = "info"
+                    let nummer = document.createElement("span")
+                    nummer.className = "nummer"
+                    nummer.innerHTML = reb.id
+                    info.appendChild(nummer)
+                    let deleteBut = document.createElement("button")
+                    deleteBut.className = "done"
+                    deleteBut.innerHTML = "DELETE"
+                    let editBut = document.createElement("button")
+                    editBut.className = "done"
+                    editBut.innerHTML = "EDIT"
+                    info.appendChild(editBut)
+                    info.appendChild(deleteBut)
+                    cart.appendChild(info)
+                    let ord = document.createElement("div")
+                    ord.className = "order"
+                    let orderinfo = document.createElement("div")
+                    orderinfo.className = "orderinfo"
+                    let nameinfo = document.createElement("span")
+                    orderinfo.appendChild(nameinfo)
+                        .innerHTML = reb.text
+                    let inputImg = document.createElement("input")
+                        inputImg.type = "file"
+
+                        inputImg.onchange = function(event) {
+                        let photo = event.target.files[0]
+                        let reader = new FileReader
+                        reader.readAsDataURL(photo)
+                                       
+                        reader.onload = function (ev) {
+                          photo = ev.target.result
+                          fetch(`https://fea13-sema.glitch.me/games/${reb.id}`, {
+                                method: "PATCH",
+                                headers: {
+                                 "Content-Type": "application/json"
+                                },
+                                body: JSON.stringify({
+                                    img: photo
+                                })
+                                }).then(response => response.json())
+                                    .then(response => {
+                                            img.src = response.img
+                                              })  
+                        
+                                        }.bind(this)
+                                    }.bind(this)
+                            orderinfo.appendChild(inputImg)
+                    ord.appendChild(orderinfo)
+                    let img = document.createElement("img")
+                    img.src = reb.img
+                    ord.appendChild(img)
+                    cart.appendChild(ord)
+                    rebusList.appendChild(cart)
+                    deleteBut.onclick = function (event) {
+                        fetch(`https://fea13-sema.glitch.me/games/${reb.id}`, {
+                            method: "DELETE",
+                        }).then(
+                            response => response.json())
+                            .then(() => {
+                                cart.remove()
+                            })
+                    }.bind(this)
+                    editBut.onclick = function editItem(event) {
+                
+                        nameinfo.contentEditable = true
+                        nameinfo.style.border = "1px solid green"
+                        
+                        editBut.innerHTML = "SAVE"
+                        editBut.onclick = function (event) {
+                            editBut.innerHTML = "EDIT"
+                            nameinfo.contentEditable = false
+                            nameinfo.style.border = "0"
+                    
+                            fetch(`https://fea13-sema.glitch.me/games/${reb.id}`, {
+                                method: "PATCH",
+                                headers: {
+                                    "Content-Type": "application/json"
+                                },
+                                body: JSON.stringify({
+                                    text: nameinfo.innerHTML,
+                                
+                                })
+                            }).then(response => response.json())
+                                .then(response => {
+                                    nameinfo.innerHTML = response.text
+                                   
+                                })
+                            editBut.onclick = editItem
+                        }
+                    }.bind(this)
+
+                })
+
+            } 
+            
+        }
+        getItems()
+    }.bind(this)
+//______________________PUT LIST STASRT______________________\\
+
+
+
+    this.closeBut = function() {
+        this.style.display = "none";
+      }.bind(this)
+      this.closeButton.onclick = function (event) {
+        this.closeBut()
+      }.bind(this)
+    }
+
+        
+
+
+
+       
+    
+
+   
+
+}
+customElements.define("admin-panel", AdminPanel);

@@ -1,0 +1,263 @@
+.modal{
+    display:block;
+    position:fixed;
+    z-index:1;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    overflow:auto;
+    background-color: rgba(0,0,0,0.8);
+}
+.close-regpage{
+    width: 30px;
+    position: absolute;
+    top: 4px;
+    right: 4px;
+}
+.close-regpage:hover{
+    cursor: pointer;
+    transform: scale(1.3);
+}
+.head{
+    display: flex;
+    justify-content: center;
+}
+/* .wrapper{
+    background: url(images/banner2.jpg);
+    width: 600px;
+} */
+section{
+    width: 500px;
+    height: fit-content;
+    min-height: 200px;
+    border:3px solid #b99403;
+    border-radius: 20px;
+    position:fixed;
+    top:100px;
+    left:32%;
+    background: url(../images/banner2.jpg);
+}
+.input-text-qwestion{
+    width: 350px;
+    height: 50px;
+    text-indent: 100px;
+    font-size: 18px;
+    border-radius: 20px;
+}
+.tasklist{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+.input-text-qwestion{
+    margin-left: 25px;
+    display: flex;
+    justify-content: center;
+    outline: 0;
+}
+.buttons-post{
+    display: flex;
+    justify-content: space-around;
+}
+.buttonlbl{
+    border-radius: 5px;
+    background:#ec9e03;
+    color: #ffffff;
+    position: relative;
+    left: 219px;
+    padding: 10px 30px 10px 30px;
+    transition: all 0.8s ease
+}
+.buttonlbl:hover{
+    cursor: pointer;
+    background:#4c4c4c;
+    transform: scale(1.2)
+
+}
+.back-to-tasklist{
+    border-radius: 5px;
+    background:#ec9e03;
+    border: 0;
+    color: #ffffff;
+    padding: 20px 50px;
+    margin: 10px;
+    outline:none;
+    position: relative;
+   
+    left: 129px;
+    transition: all 0.8s ease  
+}
+.back-to-tasklist:hover{
+    cursor: pointer;
+    background:#4c4c4c;
+    transform: scale(1.2);
+}
+
+button{
+    border-radius: 5px;
+    background:#ec9e03;
+    border: 0;
+    color: #ffffff;
+    padding: 20px 50px;
+    margin: 10px;
+    outline:none;
+     
+    transition: all 0.8s ease
+}
+button:hover{
+    cursor: pointer;
+    background:#4c4c4c;
+    transform: scale(1.2)
+}
+.post-new-rebus{
+    border-radius: 5px;
+    background:#ec9e03;
+    border: 0;
+    color: #ffffff;
+    padding: 20px 50px;
+    margin: 10px;
+    outline:none;
+  
+    transition: all 0.8s ease
+}
+
+.post_page{
+    display:none;
+}
+.rebus_list{
+    display:none;
+}
+.form-photo-rebus{
+    display:none;
+}
+.fist-avatar{
+    display: block;
+    margin: 30px;
+    width: 350px;
+    max-height: 200px;
+    border: 6px solid #b99403;
+    border-radius: 20px;
+}
+.buttons-rebus-list{
+    border-radius: 5px;
+    background:#ec9e03;
+    border: 0;
+    color: #ffffff;
+    padding: 20px 50px;
+    margin: 10px;
+    outline:none;
+    transition: all 0.8s ease
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+section {
+   display: flex;
+    margin: 0 auto;
+    overflow-x: hidden;
+    overflow: auto;
+    max-height: 500px;
+    width: 550px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: url(../images/banner2.jpg);
+    color: white;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px;
+
+}
+
+
+::-webkit-scrollbar { display: none; }
+
+.order img{
+    width: 350px;
+    border-radius: 20px;
+    border: 3px solid black;
+    margin-left: 5px;
+}
+.siteinfo{
+    width: 100%;
+    background: whitesmoke;
+    box-sizing: border-box;
+    border: 6px solid #b99403;
+}
+.cart{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 400px;
+    background: url(../images/banner1.jpg);
+    border: 5px solid #b99403;
+    margin-top: 15px;
+    border-radius: 10px;
+    padding-bottom: 15px;
+}
+.order span{
+    color: black;
+    position: relative;
+    left: 47px;
+    top: -20px;
+    padding: 10px;
+    font-size: 1.3em;
+    border-radius: 10px;
+}
+
+.order input{
+   
+    
+    overflow: hidden;
+    position: relative;
+    right: -99px;
+   
+}
+
+.nummer{
+    font-size: 80px;
+    text-align: center;
+}
+.info{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 15px;
+    align-items: center;
+    color: #030108e3;
+
+}
+h1{
+    font-size: 2em;
+}
+

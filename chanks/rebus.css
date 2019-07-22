@@ -1,0 +1,241 @@
+.modal{
+    display:block;
+    position:fixed;
+    z-index:1;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    overflow:auto;
+    background-color: rgba(0,0,0,0.8);
+}
+.close-regpage {
+    width: 30px;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 1;
+}
+.container {
+    position: relative;
+}
+.close-regpage:hover{
+    cursor: pointer;
+    transform: scale(1.3);
+}
+.foto {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 550px;
+	height:  max-content;
+	min-height: 400px;
+	position: relative;
+	border:10px solid black;
+	background: url(../images/rebusback.jpg);
+	border-radius: 30px;
+	flex-direction: column;
+}
+
+h1 {
+	top: -24px;
+	position: relative;
+	text-align: center;
+	top: -16px;
+}
+.imageWrapper img{
+	border-radius: 20px;
+	border: 3px solid;
+	top: -14px;
+    position: relative;
+}
+
+#demo img{
+	width: 350px; 
+	top: -60px;
+	position: relative; 
+	border: 5px solid black;
+	border-radius: 50px;
+}
+
+#demo:hover{
+	cursor: pointer;
+	transform: scale(1.2);
+}
+
+.button-answer{
+	
+	border-radius: 5px;
+	background:#ec9e03;
+	border: 0;
+	color: #ffffff;
+	padding: 5px 15px;
+	outline:none;
+	transition: all 0.8s ease
+	}
+.button-answer:hover{
+	cursor: pointer;
+	background:#4c4c4c;
+	transform: scale(1.2)
+}
+.skip{
+	border-radius: 5px;
+	background:#ec9e03;
+	border: 0;
+	color: #ffffff;
+	padding: 5px 15px;
+	outline:none;
+	transition: all 0.8s ease
+}
+.back{
+	width: 10px;
+	height: 23px;
+	border-radius: 5px;
+	background:#ec9e03;
+	border: 0;
+	color: #ffffff;
+	padding: x;
+	outline:none;
+	transition: all 0.8s ease
+}
+.back:hover{
+	cursor: pointer;
+	background:#4c4c4c;
+	transform: scale(1.2)
+}
+.back img{
+	width: 10px;
+}
+.skip:hover{
+	cursor: pointer;
+	background:#4c4c4c;
+	transform: scale(1.2)
+}
+.button-clean{
+	border-radius: 5px;
+	background:#ec9e03;
+	border: 0;
+	color: #ffffff;
+	padding: 5px 15px;
+	outline:none;
+	transition: all 0.8s ease;
+}
+.button-clean:hover{
+	cursor: pointer;
+	background:#4c4c4c;
+	transform: scale(1.2)
+}
+#variant{
+	margin:10px;
+	 
+}
+
+.type-answer{
+	border-radius: 30px;
+	outline: none;
+	width: 200px;
+	height: 25px;
+	font-size: 20px;
+	padding-left: 10px;
+}
+span button{
+	height: 20px;
+	 width: 20px;
+	 margin: 10px 0 0 20px;
+	 padding: 2px;
+	 border: 1px solid black;
+	 border-radius: 10px;
+	 background: #ec9e03;
+	 outline:none;
+ 
+}
+span button:hover{
+	cursor: pointer;
+	background:#4c4c4c;
+	transform: scale(1.2)
+
+}
+.error-txt{
+	display: none;
+	position: relative;
+	top: -25px;
+	font-size: 1.2em;
+	text-transform: uppercase;
+	animation: blink 10s infinite; 
+	color: #fb4646;
+
+}
+@keyframes blink{
+    from {opacity: 1;}
+    to {opacity: 0;}
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~ */
+
+html, body {
+	margin: 0;
+	padding: 0;
+}
+
+html{
+	box-sizing: border-box;
+}
+
+*, *::before, *::after{
+	box-sizing: inherit;
+}
+
+.wrapper{
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+@media(max-width:420px){
+	.foto {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 300px;
+		height: max-content;
+		min-height: 350px;
+		position: relative;
+		border: 10px solid black;
+		background: green;
+		border-radius: 30px;
+		flex-direction: column;
+	}
+	.imageWrapper img{
+		width: 250px;
+	}
+	#variant{
+		width: 200px;
+		
+	}
+
+}
+
+
+@media(max-width:360px){
+	.foto {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 300px;
+		height: max-content;
+		min-height: 350px;
+		position: relative;
+		border: 10px solid black;
+		background: green;
+		border-radius: 30px;
+		flex-direction: column;
+	}
+	.imageWrapper img{
+		width: 250px;
+	}
+	#variant{
+		width: 200px;
+	}
+
+}
