@@ -72,6 +72,7 @@ class Rebus extends HTMLElement {
         this.showQuestion(rebusData[this.currentQuestion]);
 
         this.checkButton.onclick = function(event) {
+                
                 checkResult(this.input.value);
         }.bind(this)
             document.addEventListener("keypress", event => {
@@ -110,7 +111,23 @@ class Rebus extends HTMLElement {
                 this.showQuestion(rebusData[++this.currentQuestion])
              
            
-        }.bind(this) 
+        }.bind(this)    
+        
+        this.closeButton.onclick = function (event) {
+            this.style.display = "none";
+            document.body.style.overflow="auto";
+
+        }.bind(this)
+
+        this.skip.onclick = function (event){
+            this.showQuestion(rebusData[++this.currentQuestion]);
+            this.errorSpace.style.display ="none";
+        }.bind(this)
+
+        this.back.onclick = function (event){
+            this.errorSpace.style.display ="none";
+            this.showQuestion(rebusData[--this.currentQuestion])
+        }.bind(this)
         
 
     };
