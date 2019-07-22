@@ -97,6 +97,7 @@ class Rebus extends HTMLElement {
                 return;
             }
             if (inputdata == this.answer) {
+                this.showQuestion(rebusData[++this.currentQuestion])
                 this.errorSpace.style.display ="none"
                 return;
             }
@@ -105,23 +106,11 @@ class Rebus extends HTMLElement {
                 this.shadow.querySelector(".foto").innerHTML = '<h1>Все ребусы успешно отгаданы, молодец!</h1>';
                 return;
             }
-            this.showQuestion(rebusData[++this.currentQuestion])
-        }.bind(this)    
-        
-        this.closeButton.onclick = function (event) {
-            this.style.display = "none";
-
-        }.bind(this)
-
-        this.skip.onclick = function (event){
-            this.showQuestion(rebusData[++this.currentQuestion]);
-            this.errorSpace.style.display ="none";
-        }.bind(this)
-
-        this.back.onclick = function (event){
-            this.errorSpace.style.display ="none";
-            this.showQuestion(rebusData[--this.currentQuestion])
-        }.bind(this)
+            
+                this.showQuestion(rebusData[++this.currentQuestion])
+             
+           
+        }.bind(this) 
         
 
     };
